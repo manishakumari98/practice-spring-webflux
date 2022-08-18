@@ -17,21 +17,6 @@ import org.springframework.test.web.reactive.server.WebTestClient
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MyControllerIntegrationTest(@Autowired private val client: WebTestClient) {
-
-    private val mockWebServer = MockWebServer()
-    private val dispatcher = CustomMockDispatcher()
-
-    @BeforeEach
-    fun setUp() {
-        mockWebServer.start(7866)
-        mockWebServer.dispatcher = dispatcher
-    }
-
-    @AfterEach
-    fun tearDown() {
-        mockWebServer.shutdown()
-    }
-
     @Test
     fun `should encode`() {
         client.post().uri("/dummy/encode")
