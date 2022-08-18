@@ -5,7 +5,7 @@
 - Reactive Mongo
 - Gradle
 
-##Learnings
+## Learnings
 - writing controller
 - creating mongo repository
 - writing unit tests
